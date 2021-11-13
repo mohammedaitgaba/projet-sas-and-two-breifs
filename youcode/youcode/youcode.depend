@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1636672278 source:c:\users\med gaba\desktop\youcode\youcode\main.c
+	<stdio.h>
+	<stdlib.h>
+
