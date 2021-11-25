@@ -23,9 +23,9 @@ void tri_comptes_des(char T_NP[50][20],char T_cin[50][20],double T_Montant[50],i
                 strcpy(T_cin[j],T_cin[i]);
                 strcpy(T_cin[i],tempcin);
 
-                strcpy(T_NP[i],tempnp);
-                strcpy(T_NP[j],T_NP[i]);
                 strcpy(tempnp,T_NP[j]);
+                strcpy(T_NP[j],T_NP[i]);
+                strcpy(T_NP[i],tempnp);
 
 
             }
@@ -44,29 +44,31 @@ int main()
     {
         do
         {
+            system("cls");
+
             printf("                                   Aplication Gestion Bancaire\n");
             printf("                            Tu peut choisir un des operation suivants : \n\n\n");
 start:
-            printf("______________________________________________\n");
+            printf("________________________________\n");
             printf("1 :Introduire un compte bancaire \n");
             printf("2 :Introduire plusieurs comptes bancaires\n");
             printf("3 :Operations \n");
             printf("4 :Affichage \n");
             printf("5 :Fidelisation \n");
             printf("6 :Quitter l’application\n");
-            printf("_______________________________________________\n");
+            printf("________________________________\n");
             scanf("%d",&choix_compt);
 
         }
         while(choix_compt<1 || choix_compt >6);
-        //choix 1 : un seul compte
+        //choix 1 : un seul compte________________________________
         switch (choix_compt)
         {
         case 1:
         {
             system("cls");
             printf("                                Introduire un compte bancaire\n\n");
-            printf("                         ______________________________________________________\n");
+            printf("                         ______\n");
             printf("SVP entre le NOM :");
             scanf("%s",T_NP[nb_compt]);
             printf("SVP entre le CIN :");
@@ -78,7 +80,7 @@ start:
 
             goto start;
         }
-        //choix 2 : plusieur comptes
+        //choix 2 : plusieur comptes________________________
         case 2 :
         {
             {
@@ -97,15 +99,11 @@ start:
                 scanf("%lf",&T_Montant[nb_compt]);
                 nb_compt++;
             }
-            /*for(i=0;i<nb_compt;i++)
-            {
-                printf("%s***%lf \n",T_NP[i],T_Montant[i]);
-            }*/
             system("cls");
             goto start;
         }
 
-        case 3 : // les operation
+        case 3 : // les operation_________________________
         {
             system("cls");
             if(nb_compt==0)
@@ -142,16 +140,10 @@ start2:
                         scanf("%d",&choix_argent);
                     }
                     while(choix_argent<1 || choix_argent>2);
-
-                    /*
-                    printf("svp choisire un des comptes suivant pour affecter l'operation \n");
-                    for(i=0;i<nb_compt;i++){
-                    printf("%d __%s   ",i+1,T_NP[i]);}
-                    scanf("%d",&a);*/
                     switch(choix_argent)
                     {
                     case 1 :
-                    {
+
                         printf("combien de l'argent tu va retirer du compte de %s\n",T_NP[Z]);
                         scanf("%lf",&re);
                         while(re>T_Montant[Z])
@@ -161,24 +153,28 @@ start2:
                         };
 
                         T_Montant[Z]=T_Montant[Z]-re;
-                        printf("le montrant actuel de %s est %lf\n",T_NP[Z],T_Montant[Z]);
-                    }
-                    break;
+                        printf("le montant actuel de %s est %lf\n",T_NP[Z],T_Montant[Z]);
+                        system("pause");
+                        system("cls");
+                        goto start;
+
+
                     case 2 :
-                    {
+
                         printf("combien de l'argent tu va deposer ");
                         scanf("%lf",&dep);
                         T_Montant[Z]=T_Montant[Z]+dep;
-                        printf("votre montrant est %lf\n",T_Montant[Z]);
-                    }
-                    break;
+                        printf("le nouveau montrant est %lf\n",T_Montant[Z]);
+                        system("pause");
+                        system("cls");
+                        goto start;
+
+
 
                     }
-
-                    goto start;
                 }
             }
-        }//choix 4 afichage
+        }//choix 4 afichage________________________
         case 4 :
         {
             system("cls");
@@ -208,11 +204,10 @@ start2:
                 printf("affichage des comptes par Ordre Ascendant \n");
                 //fonction de trie
                 tri_comptes_des(T_NP,T_cin,T_Montant,nb_compt);
-
-
                 for(i=nb_compt-1; i>=0; i--)
                 {
-                    printf("%s (%s) :%lf\n",T_NP[i],T_cin[i],T_Montant[i]);
+                    printf("%s____:%lf\n",T_NP[i],T_Montant[i]);
+
                 }
                 system("pause");
                 system("cls");
@@ -226,7 +221,7 @@ start2:
 
                 for(i=0; i<nb_compt; i++)
                 {
-                    printf("%s (%s) : %lf   \n",T_NP[i],T_cin[i],T_Montant[i]);
+                    printf("%s____:%lf\n",T_NP[i],T_Montant[i]);
                 }
                 system("pause");
                 system("cls");
@@ -245,7 +240,7 @@ start2:
                 {
                     if (T_Montant[i] > chiffre)
                     {
-                        printf("%s (%s) :%lf\n",T_NP[i],T_cin[i],T_Montant[i]);
+                        printf("%s____:%lf\n",T_NP[i],T_Montant[i]);
                     }
                 }
                 system("pause");
@@ -264,7 +259,7 @@ start2:
                 {
                     if (T_Montant[i] > chiffre)
                     {
-                        printf("%s (%s) :%lf\n",T_NP[i],T_cin[i],T_Montant[i]);
+                        printf("%s____:%lf\n",T_NP[i],T_Montant[i]);
                     }
                 }
                 system("pause");
@@ -296,8 +291,8 @@ start2:
             }//switch choix d'affichage
 
         }//affichage switch
-            case 5 :
-                //fidelisation________________________________________________________________________
+        case 5 :
+            //fidelisation__________
             while(nb_compt==0)
             {
                 system("cls");
@@ -308,26 +303,31 @@ start2:
 
             tri_comptes_des(T_NP,T_cin,T_Montant,nb_compt);
             if(nb_compt<3)
-            i=nb_compt-1;
-            else{
-            for(i=0; i<nb_compt; i++)
+                i=nb_compt-1;
+            else
             {
-                if (T_Montant[i]==T_Montant[i+1]){}
-
-                   else if(T_Montant[i]>T_Montant[i+1])
-                   R++;
-                   if (R==3)
-                break;
-            }}
+                for(i=0; i<nb_compt; i++)
+                {
+                    if (T_Montant[i]==T_Montant[i+1])
+                    {
+                        continue;
+                    }
+                    if(T_Montant[i]>T_Montant[i+1])
+                        R++;
+                    if (R==3)
+                        break;
+                }
+            }
             system("cls");
 
 
-            for(j=0; j<=i; j++){
-                printf("%s  ____:%lf + %lf = %f \n",T_NP[j],T_Montant[j],T_Montant[j]*1.3/100,T_Montant[j]+T_Montant[j]*1.3/100);
-                }
-                system("pause");
-                system("cls");
-                goto start;
+            for(j=0; j<=i; j++)
+            {
+                printf("%s  __:%lf + %lf = %f \n",T_NP[j],T_Montant[j],T_Montant[j]*1.3/100,T_Montant[j]+T_Montant[j]*1.3/100);
+            }
+            system("pause");
+            system("cls");
+            goto start;
 
         }//first switch menu select
 
@@ -336,4 +336,3 @@ start2:
     return 0;
 
 }
-
