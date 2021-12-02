@@ -133,7 +133,7 @@ start2:
                 }
                 else
                 {
-                    printf("le compte tu es choisi est : %s %s %lf\n\n",T_NP[Z],T_cin[Z],T_Montant[Z]);
+                    printf("le compte tu es choisi est : %s %s %lf dh \n\n",T_NP[Z],T_cin[Z],T_Montant[Z]);
                     do
                     {
                         printf("press 1 pour retirer de l’argent. \npress 2 pour deposer de l'argent \n");
@@ -153,7 +153,7 @@ start2:
                         };
 
                         T_Montant[Z]=T_Montant[Z]-re;
-                        printf("le montant actuel de %s est %lf\n",T_NP[Z],T_Montant[Z]);
+                        printf("le montant actuel de %s est %lf dh\n",T_NP[Z],T_Montant[Z]);
                         system("pause");
                         system("cls");
                         goto start;
@@ -164,7 +164,7 @@ start2:
                         printf("combien de l'argent tu va deposer ");
                         scanf("%lf",&dep);
                         T_Montant[Z]=T_Montant[Z]+dep;
-                        printf("le nouveau montrant est %lf\n",T_Montant[Z]);
+                        printf("le nouveau montrant est %lf dh\n",T_Montant[Z]);
                         system("pause");
                         system("cls");
                         goto start;
@@ -206,7 +206,7 @@ start2:
                 tri_comptes_des(T_NP,T_cin,T_Montant,nb_compt);
                 for(i=nb_compt-1; i>=0; i--)
                 {
-                    printf("%s____:%lf\n",T_NP[i],T_Montant[i]);
+                    printf("%s____:%lf dh\n",T_NP[i],T_Montant[i]);
 
                 }
                 system("pause");
@@ -221,7 +221,7 @@ start2:
 
                 for(i=0; i<nb_compt; i++)
                 {
-                    printf("%s____:%lf\n",T_NP[i],T_Montant[i]);
+                    printf("%s____:%lf dh\n",T_NP[i],T_Montant[i]);
                 }
                 system("pause");
                 system("cls");
@@ -240,7 +240,7 @@ start2:
                 {
                     if (T_Montant[i] > chiffre)
                     {
-                        printf("%s____:%lf\n",T_NP[i],T_Montant[i]);
+                        printf("%s____:%lf dh\n",T_NP[i],T_Montant[i]);
                     }
                 }
                 system("pause");
@@ -259,7 +259,7 @@ start2:
                 {
                     if (T_Montant[i] > chiffre)
                     {
-                        printf("%s____:%lf\n",T_NP[i],T_Montant[i]);
+                        printf("%s____:%lf dh\n",T_NP[i],T_Montant[i]);
                     }
                 }
                 system("pause");
@@ -281,7 +281,7 @@ start2:
                         Z=-1;
                 }
                 if(Z!=-1)
-                    printf("%s %s %lf\n\n",T_NP[Z],T_cin[Z],T_Montant[Z]);
+                    printf("%s %s %lf dh \n\n",T_NP[Z],T_cin[Z],T_Montant[Z]);
                 else if (Z=-1)
                     printf("ce compte est introuvale \n\n");
                 system("pause");
@@ -323,7 +323,7 @@ start2:
 
             for(j=0; j<=i; j++)
             {
-                printf("%s  __:%lf + %lf = %f \n",T_NP[j],T_Montant[j],T_Montant[j]*1.3/100,T_Montant[j]+T_Montant[j]*1.3/100);
+                printf("%s  __:%lf dh+ %lf dh = %f dh\n",T_NP[j],T_Montant[j],T_Montant[j]*1.3/100,T_Montant[j]+T_Montant[j]*1.3/100);
             }
             system("pause");
             system("cls");
